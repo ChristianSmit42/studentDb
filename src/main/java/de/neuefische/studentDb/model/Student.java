@@ -1,8 +1,11 @@
 package de.neuefische.studentDb.model;
 
 public class Student {
+
+
     private String name="";
     private int id;
+
 
     public String getName() {
         return name;
@@ -18,5 +21,13 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
