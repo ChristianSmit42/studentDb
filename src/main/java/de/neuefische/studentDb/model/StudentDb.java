@@ -20,8 +20,11 @@ public class StudentDb {
     public String toString() {
         String allStudents="";
         for(Student student:students){
-            allStudents+=student.toString();
+            allStudents+=student.toString() + "\n";
         }
+       /* for(int i=0;i<students.length;i++){
+            allStudents+=students[i].toString();
+        }*/
         return allStudents;
     }
 
