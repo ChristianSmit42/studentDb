@@ -8,7 +8,7 @@ public interface Student {
     public void setId(int id);
     public void setName(String name);
     public String toString();
-    public boolean hasFailed(double grade);
+    public boolean hasPassed(double grade);
     /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;

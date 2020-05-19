@@ -37,7 +37,7 @@ public class ChemistryStudent implements Student{
                 '}';
     }
 
-    public boolean hasFailed(double grade){
-        return grade > 2.3;
+    public boolean hasPassed(double grade){
+        return !(grade > 2.3);
     }
 }
