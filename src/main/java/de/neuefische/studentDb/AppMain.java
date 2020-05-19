@@ -22,7 +22,9 @@ public class AppMain {
                 "\n");
 
         for(Student student: studentDb.list()){
-            System.out.printf("%s has passed: %s%n", student.toString(), student.hasPassed(1.55));
+            System.out.println(student.toString() +
+                    " has passed: " +
+                    student.hasPassed(1.55));
         }
 
     }
