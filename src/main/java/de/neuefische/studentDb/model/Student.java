@@ -2,8 +2,14 @@ package de.neuefische.studentDb.model;
 
 import java.util.Objects;
 
-public class Student {
-    @Override
+public interface Student {
+    public int getId();
+    public String getName();
+    public void setId(int id);
+    public void setName(String name);
+    public String toString();
+    public boolean hasFailed(double grade);
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -47,5 +53,5 @@ public class Student {
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';
-    }
+    }*/
 }

@@ -1,4 +1,7 @@
-package de.neuefische.studentDb.model;
+package de.neuefische.studentDb.db;
+
+import de.neuefische.studentDb.model.BiologyStudent;
+import de.neuefische.studentDb.model.Student;
 
 import java.util.Arrays;
 
@@ -28,7 +31,7 @@ public class StudentDb {
     }
 
     public Student randomStudent() {
-        int random = (int) ((Math.random() * students.length);
+        int random = (int) (Math.random() * students.length);
         return students[random];
     }
 
@@ -51,7 +54,7 @@ public class StudentDb {
         } */
         System.arraycopy(this.students, 0, tempstuds, 0, this.students.length);
 
-        tempstuds[this.students.length] = new Student(id, name);
+        tempstuds[this.students.length] = new BiologyStudent(name, id);
         this.students = tempstuds;
     }
 
