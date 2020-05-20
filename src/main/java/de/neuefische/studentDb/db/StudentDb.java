@@ -3,74 +3,47 @@ package de.neuefische.studentDb.db;
 import de.neuefische.studentDb.model.BiologyStudent;
 import de.neuefische.studentDb.model.Student;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentDb {
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StudentDb studentDb = (StudentDb) o;
-        return Arrays.equals(students, studentDb.students);
-    }
 
-    @Override
-    public int hashCode() {
-        return Arrays.hashCode(students);
-    }
+    private ArrayList<Student> students;
 
-    private Student[] students;
-
-    public StudentDb(Student[] students) {
+    public StudentDb(ArrayList<Student> students) {
 
         this.students = students;
     }
 
-    public Student[] list() {
+    public ArrayList<Student> list() {
         return students;
     }
 
     public Student randomStudent() {
-        int random = (int) (Math.random() * students.length);
-        return students[random];
+        int random = (int) (Math.random() * students.size());
+        return students.get(random);
     }
 
-    public void removeStudent(int index) {
-        Student[] tempstuds = new Student[this.students.length - 1];
-        for (int i = 0, k = 0; i < this.students.length; i++) {
-            if (i == index) {
-                continue;
-            }
-            tempstuds[k++] = this.students[i];
-        }
-        this.students = tempstuds;
+    public void addStudent(Student student){
+        this.students.add(student);
     }
 
-    public void addStudent(int id, String name) {
-        Student[] tempstuds = new Student[this.students.length + 1];
-
-       /* for(int i=0;i<this.students.length;i++){
-            tempstuds[i]=this.students[i];
-        } */
-        System.arraycopy(this.students, 0, tempstuds, 0, this.students.length);
-
-        tempstuds[this.students.length] = new BiologyStudent(name, id);
-        this.students = tempstuds;
+    public void removeStudent(int index){
+        this.students.remove(index);
+    }
+    public void removeStudent(Student student){
+        this.students.remove(student);
     }
 
     @Override
     public String toString() {
         StringBuilder allStudents = new StringBuilder();
         for (Student student : students) {
-           /*
-            allStudents+=student.toString() + "\n";
-           */
+
             allStudents.append(student.toString()).append("\n");
 
         }
-       /* for(int i=0;i<students.length;i++){
-            allStudents+=students[i].toString();
-        }*/
+
         return allStudents.toString();
     }
 

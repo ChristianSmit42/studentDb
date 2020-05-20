@@ -5,27 +5,30 @@ import de.neuefische.studentDb.model.ChemistryStudent;
 import de.neuefische.studentDb.model.Student;
 import de.neuefische.studentDb.db.StudentDb;
 
+import java.util.ArrayList;
+
 public class AppMain {
 
     public static void main(String[] args) {
+            ArrayList<Student> students = new ArrayList<>();
 
-        Student[] students = new Student[3];
-        students[0] = new BiologyStudent("Paul", 1);
-        students[1] = new BiologyStudent("Erhartdt", 2);
-        students[2] = new ChemistryStudent("Susanne", 3);
+            students.add(new BiologyStudent("Birgit",1));
+            students.add(new BiologyStudent("achsel",2));
+            students.add(new ChemistryStudent("Dominik", 3));
 
-        StudentDb studentDb = new StudentDb(students);
+            StudentDb studentDb = new StudentDb(students);
+            System.out.println(studentDb.toString());
 
-        //* USE OF randomStudent()*//*
-        System.out.println("random Student: " +
-                studentDb.randomStudent().toString() +
-                "\n");
+            studentDb.addStudent(new ChemistryStudent("Greta",4));
+            System.out.println(studentDb.toString());
 
-        for(Student student: studentDb.list()){
-            System.out.println(student.toString() +
-                    " has passed: " +
-                    student.hasPassed(1.55));
-        }
+            studentDb.removeStudent(1);
+            System.out.println(studentDb.toString());
+
+            studentDb.removeStudent(new BiologyStudent("Birgit" , 1));
+            System.out.println(studentDb.toString());
+
+
 
     }
 }

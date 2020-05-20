@@ -9,6 +9,8 @@ public interface Student {
     public void setName(String name);
     public String toString();
     public boolean hasPassed(double grade);
+    public boolean equals(Object o);
+    public int hashCode();
     /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
