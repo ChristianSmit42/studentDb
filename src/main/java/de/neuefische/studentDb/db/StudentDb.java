@@ -42,6 +42,12 @@ public class StudentDb {
         this.students.remove(student);
     }
 
+    public optional<Student>  addStudent(ArrayList<Student> students){
+        for(Student student:students){
+            if(this.student.getId()==)
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder allStudents = new StringBuilder();
