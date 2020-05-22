@@ -5,6 +5,7 @@ import de.neuefische.studentDb.model.Student;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 
 public class StudentDb {
 
@@ -25,13 +26,19 @@ public class StudentDb {
     }
 
     public void addStudent(Student student){
-        this.students.add(student);
+        for (int i = 0; i < students.size(); i++) {
+            
+        }
     }
 
-    public void removeStudent(int index){
-        this.students.remove(index);
+    public boolean removeStudentByIndex(int index){
+        if(students.size()>index){
+            this.students.remove(index);
+            return true;
+        }
+        return false;
     }
-    public void removeStudent(Student student){
+    public void removeStudentByObject(Student student){
         this.students.remove(student);
     }
 
@@ -51,6 +58,14 @@ public class StudentDb {
         }
 
         return allStudents.toString();
+    }
+    public Optional<Student> findStudentByName(String name){
+        for(Student student : students){
+            if(student.getName().equals(name)){
+                return Optional.of(student);
+            }
+        }
+        return Optional.empty();
     }
 
 }
